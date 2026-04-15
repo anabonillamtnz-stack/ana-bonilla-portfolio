@@ -59,6 +59,8 @@ const cmds = {
     {t:'      E-commerce de moda sustentable. Responsivo puro.', c:'d'}, {t:''},
     {t:'  02. Landing Page de Lujo', c:'y'},
     {t:'      Coordinación de 8 integrantes y más.', c:'d'}, {t:''},
+    {t:'  03. Movilidad Inteligente', c:'y'},
+    {t:'      Aplicación web para gestión de movilidad urbana.', c:'d'}, {t:''},
   ],
   secret: () => [
     {t:'🔐 Archivos clasificados...', c:'p'}, {t:''},
