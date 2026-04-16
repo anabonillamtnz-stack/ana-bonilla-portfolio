@@ -120,3 +120,20 @@ tinput.addEventListener('keydown', e => {
 });
 
 document.querySelector('.t-win').addEventListener('click', () => tinput.focus());
+
+const menuToggle = document.getElementById('menu-toggle');
+const navMenu = document.getElementById('nav-menu');
+
+// Abrir/Cerrar menú al dar clic en la hamburguesa
+menuToggle.addEventListener('click', () => {
+  menuToggle.classList.toggle('active');
+  navMenu.classList.toggle('active');
+});
+
+// Cerrar el menú automáticamente cuando se hace clic en un enlace (importante para navegación)
+document.querySelectorAll('nav a').forEach(link => {
+  link.addEventListener('click', () => {
+    menuToggle.classList.remove('active');
+    navMenu.classList.remove('active');
+  });
+});

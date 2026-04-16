@@ -164,9 +164,9 @@ h1 em { font-style: italic; color: var(--plum); }
 
 .chips { display: flex; flex-wrap: wrap; gap: .38rem; margin-bottom: 2rem; }
 .chip { font-family: var(--mono); font-size: .63rem; padding: .24rem .62rem; border-radius: 3px; border: 1px solid; transition: all .18s; }
-.chip.java { border-color: rgba(145,78,86,.35); color: var(--plum); background: rgba(145,78,86,.06); }
+.chip.java { border-color: rgba(145,78,86,.35); color: var(--egg); background: rgba(145,78,86,.06); }
 .chip.web { border-color: rgba(77,48,63,.2); color: var(--egg); background: rgba(77,48,63,.05); }
-.chip.tool { border-color: rgba(168,144,128,.4); color: var(--text3); background: rgba(168,144,128,.06); }
+.chip.tool { border-color: rgba(168,144,128,.4); color: var(--egg); background: rgba(168,144,128,.06); }
 
 .cta-row { display: flex; gap: .85rem; flex-wrap: wrap; }
 .btn { font-family: var(--mono); font-size: .7rem; letter-spacing: .1em; text-transform: uppercase; padding: .75rem 1.6rem; border-radius: 4px; text-decoration: none; cursor: pointer; transition: all .2s; }
@@ -284,4 +284,65 @@ footer { text-align: center; padding: 1.75rem; border-top: 1px solid var(--borde
   box-shadow: 0 8px 24px rgba(145,78,86,0.1); 
   display: block;
   margin: 0 auto; 
+}
+
+/* ── LEYENDA DE LA ILUSTRACIÓN ── */
+.img-caption {
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  color: var(--text3);
+  text-align: center;
+  margin-top: 1rem;
+  font-style: italic;
+  max-width: 320px; /* Mismo ancho que la imagen para que no se desborde */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ── ESTILOS MENÚ HAMBURGUESA ── */
+.menu-toggle {
+  display: none; /* Oculto en PC */
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 1000;
+}
+
+.menu-toggle .bar {
+  width: 25px;
+  height: 2px;
+  background-color: var(--plum);
+  transition: all 0.3s ease;
+}
+
+@media (max-width: 860px) {
+  .menu-toggle { display: flex; }
+
+  nav ul {
+    display: flex !important; /* ¡Esta es la línea mágica que arregla el problema! */
+    position: fixed;
+    top: 0;
+    right: -100%; 
+    background: var(--cream);
+    width: 70%;
+    height: 100vh;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    transition: right 0.4s ease;
+    box-shadow: -10px 0 20px rgba(0,0,0,0.05);
+    z-index: 999; /* Asegura que el menú flote por encima de todo */
+  }
+
+  nav ul.active {
+    right: 0;
+  }
+
+  /* Animación de la X */
+  .menu-toggle.active .bar:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .menu-toggle.active .bar:nth-child(2) { opacity: 0; }
+  .menu-toggle.active .bar:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 }
